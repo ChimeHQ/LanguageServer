@@ -1,5 +1,7 @@
 <div align="center">
 
+[![Platforms][platforms badge]][platforms]
+[![Documentation][documentation badge]][documentation]
 [![Discord][discord badge]][discord]
 
 </div>
@@ -38,6 +40,12 @@ I prefer indentation with tabs for improved accessibility. But, I'd rather you u
 
 By participating in this project you agree to abide by the [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
 
+[build status]: https://github.com/ChimeHQ/LanguageServer/actions
+[build status badge]: https://github.com/ChimeHQ/LanguageServer/workflows/CI/badge.svg
+[platforms]: https://swiftpackageindex.com/ChimeHQ/LanguageServer
+[platforms badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FChimeHQ%2FLanguageServer%2Fbadge%3Ftype%3Dplatforms
+[documentation]: https://swiftpackageindex.com/ChimeHQ/LanguageServer/main/documentation
+[documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
 [discord]: https://discord.gg/esFpX6sErJ
 [discord badge]: https://img.shields.io/badge/Discord-purple?logo=Discord&label=Chat&color=%235A64EC
 [languageserverprotocol]: https://github.com/ChimeHQ/LanguageServerProtocol
