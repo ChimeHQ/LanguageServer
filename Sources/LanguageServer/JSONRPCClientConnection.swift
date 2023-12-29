@@ -2,6 +2,9 @@ import Foundation
 import JSONRPC
 import LanguageServerProtocol
 
+/// Interface between JSON-RPC and LSP events.
+///
+/// This type provides by-directional translation between the LSP-specific types in `LanguageServerProtocol` and `JSON-RPC` events.
 public actor JSONRPCClientConnection : ClientConnection {
 	public let eventSequence: EventSequence
 	private let eventContinuation: EventSequence.Continuation

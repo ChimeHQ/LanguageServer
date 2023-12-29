@@ -1,5 +1,8 @@
 import LanguageServerProtocol
 
+/// Route JSON-RPC messages to a dedicated handler.
+///
+/// This type decodes JSON-RPC messages (requests, notifications, errors) from a `JSONRPCClientConnection` and routes them to a handler.
 public struct EventDispatcher {
 	private let connection: JSONRPCClientConnection
   	private let requestHandler: RequestHandler

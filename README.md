@@ -16,6 +16,18 @@ dependencies: [
 ]
 ```
 
+## Usage
+
+First, you'll need a way to handle the JSON-RPC messaging. The `JSONRPCClientConnection` type handles this translation. To do this, it needs a raw communications channel. This is based on the `DataChannel` type from [JSONRPC](https://github.com/ChimeHQ/JSONRPC).
+
+```swift
+import JSONRPC
+import LanguageServer 
+
+let channel = DataChannel.stdioPipe()
+let connection = JSONRPCClientConnection(channel)
+```
+
 ## Contributing and Collaboration
 
 I would love to hear from you! Issues or pull requests work great. A [Discord server][discord] is also available for live help, but I have a strong bias towards answering in the form of documenation.
@@ -28,5 +40,4 @@ By participating in this project you agree to abide by the [Contributor Code of 
 
 [discord]: https://discord.gg/esFpX6sErJ
 [discord badge]: https://img.shields.io/badge/Discord-purple?logo=Discord&label=Chat&color=%235A64EC
-
 [languageserverprotocol]: https://github.com/ChimeHQ/LanguageServerProtocol
