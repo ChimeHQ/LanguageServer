@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ChimeHQ/LanguageServerProtocol",
       "state" : {
-        "revision" : "d4b9a4e327ba07366d1f56464c1d6365b77418dd",
-        "version" : "0.11.0"
+        "revision" : "f5a53e0386b34a0e06333ec9376f5972f7d20c28",
+        "version" : "0.13.0"
       }
     }
   ],
