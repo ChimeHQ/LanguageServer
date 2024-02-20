@@ -4,12 +4,17 @@ import PackageDescription
 
 let package = Package(
 	name: "LanguageServer",
-	platforms: [.macOS(.v11), .iOS(.v14), .tvOS(.v14), .watchOS(.v7)],
+	platforms: [
+		.macOS(.v11),
+		.iOS(.v14),
+		.tvOS(.v14),
+		.watchOS(.v7),
+		.macCatalyst(.v14),
+	],
 	products: [
 		.library(name: "LanguageServer", targets: ["LanguageServer"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/ChimeHQ/JSONRPC", from: "0.9.0"),
 		.package(url: "https://github.com/ChimeHQ/LanguageServerProtocol", from: "0.11.0"),
 	],
 	targets: [
