@@ -324,6 +324,9 @@ public actor JSONRPCClientConnection : ClientConnection {
 			return try await session.response(to: method, params: params)
 		case .windowWorkDoneProgressCreate(let params, _):
 			return try await session.response(to: method, params: params)
+		case .custom(_, _, _):
+			return try await session.response(to: method)
+
 		}
 	}
 }
