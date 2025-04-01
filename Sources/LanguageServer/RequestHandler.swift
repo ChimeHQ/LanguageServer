@@ -54,6 +54,8 @@ public protocol RequestHandler : ErrorHandler {
 	func semanticTokensRange(id: JSONId, params: SemanticTokensRangeParams) async -> Response<SemanticTokensResponse>
 	func callHierarchyIncomingCalls(id: JSONId, params: CallHierarchyIncomingCallsParams) async -> Response<CallHierarchyIncomingCallsResponse>
 	func callHierarchyOutgoingCalls(id: JSONId, params: CallHierarchyOutgoingCallsParams) async -> Response<CallHierarchyOutgoingCallsResponse>
+	func typeHierarchySubtypes(id: JSONId, params: TypeHierarchySubtypesParams) async -> Response<TypeHierarchySubtypesResponse>
+	func typeHierarchySupertypes(id: JSONId, params: TypeHierarchySupertypesParams) async -> Response<TypeHierarchySupertypesResponse>
 	func custom(id: JSONId, method: String, params: LSPAny) async -> Response<LSPAny>
 }
 
@@ -164,6 +166,10 @@ public extension RequestHandler {
 			await handler(await callHierarchyIncomingCalls(id: id, params: params))
 		case let .callHierarchyOutgoingCalls(params, handler):
 			await handler(await callHierarchyOutgoingCalls(id: id, params: params))
+		case let .typeHierarchySubtypes(params, handler):
+			await handler(await typeHierarchySubtypes(id: id, params: params))
+		case let .typeHierarchySupertypes(params, handler):
+			await handler(await typeHierarchySupertypes(id: id, params: params))
 		case let .custom(method, params, handler):
 			await handler(await custom(id: id, method: method, params: params))
 		}
