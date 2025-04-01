@@ -52,7 +52,7 @@ public actor JSONRPCClientConnection : ClientConnection {
 		let note = try JSONDecoder().decode(JSONRPCNotification<Params>.self, from: data)
 
 		guard let params = note.params else {
-			throw ClientError.missingParams
+			throw ProtocolError.missingParams
 		}
 
 		return params
@@ -71,7 +71,7 @@ public actor JSONRPCClientConnection : ClientConnection {
 
 		do {
 			guard let method = ClientNotification.Method(rawValue: methodName) else {
-				throw ClientError.unrecognizedMethod(methodName)
+				throw ProtocolError.unrecognizedMethod(methodName)
 			}
 
 			switch method {
@@ -133,7 +133,7 @@ public actor JSONRPCClientConnection : ClientConnection {
 		let req = try JSONDecoder().decode(JSONRPCRequest<Params>.self, from: data)
 
 		guard let params = req.params else {
-			throw ClientError.missingParams
+			throw ProtocolError.missingParams
 		}
 
 		return params
@@ -143,7 +143,7 @@ public actor JSONRPCClientConnection : ClientConnection {
 		let req = try JSONDecoder().decode(JSONRPCRequest<Params>.self, from: data)
 
 		guard let params = req.params else {
-			throw ClientError.missingParams
+			throw ProtocolError.missingParams
 		}
 
 		return params
@@ -163,7 +163,7 @@ public actor JSONRPCClientConnection : ClientConnection {
 
 		do {
 			guard let method = ClientRequest.Method(rawValue: methodName) else {
-				throw ClientError.unrecognizedMethod(methodName)
+				throw ProtocolError.unrecognizedMethod(methodName)
 			}
 
 			switch method {
@@ -254,7 +254,7 @@ public actor JSONRPCClientConnection : ClientConnection {
 			case .textDocumentMoniker:
 				yield(id: id, request: ClientRequest.moniker(try decodeRequestParams(data), makeHandler(handler)))
 			case .textDocumentSemanticTokens:
-				throw ClientError.unhandledRegistrationMethod(methodName)
+				throw ProtocolError.unhandledRegistrationMethod(methodName)
 			case .textDocumentSemanticTokensFull:
 				yield(id: id, request: ClientRequest.semanticTokensFull(try decodeRequestParams(data), makeHandler(handler)))
 			case .textDocumentSemanticTokensFullDelta:
@@ -265,6 +265,10 @@ public actor JSONRPCClientConnection : ClientConnection {
 				yield(id: id, request: ClientRequest.callHierarchyIncomingCalls(try decodeRequestParams(data), makeHandler(handler)))
 			case .callHierarchyOutgoingCalls:
 				yield(id: id, request: ClientRequest.callHierarchyOutgoingCalls(try decodeRequestParams(data), makeHandler(handler)))
+			case .typeHierarchySubtypes:
+				yield(id: id, request: ClientRequest.typeHierarchySubtypes(try decodeRequestParams(data), makeHandler(handler)))
+			case .typeHierarchySupertypes:
+				yield(id: id, request: ClientRequest.typeHierarchySupertypes(try decodeRequestParams(data), makeHandler(handler)))
 			case .custom:
 				yield(id: id, request: ClientRequest.custom(methodName, try decodeRequestParams(data), makeHandler(handler)))
 			}
