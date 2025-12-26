@@ -39,6 +39,8 @@ public protocol RequestHandler : ErrorHandler {
 	func prepareRename(id: JSONId, params: PrepareRenameParams) async -> Response<PrepareRenameResponse>
 	func prepareTypeHeirarchy(id: JSONId, params: TypeHierarchyPrepareParams) async -> Response<PrepareTypeHeirarchyResponse>
 	func rename(id: JSONId, params: RenameParams) async -> Response<RenameResponse>
+	func inlayHint(id: JSONId, params: InlayHintParams) async -> Response<InlayHintResponse>
+	func inlayHintResolve(id: JSONId, params: InlayHint) async -> Response<InlayHintResponse>
 	func documentLink(id: JSONId, params: DocumentLinkParams) async -> Response<DocumentLinkResponse>
 	func documentLinkResolve(id: JSONId, params: DocumentLink) async -> Response<DocumentLink>
 	func documentColor(id: JSONId, params: DocumentColorParams) async -> Response<DocumentColorResponse>
