@@ -233,5 +233,7 @@ public extension RequestHandler {
 	func semanticTokensRange(id: JSONId, params: SemanticTokensRangeParams) async -> Response<SemanticTokensResponse> { .failure(NotImplementedError) }
 	func callHierarchyIncomingCalls(id: JSONId, params: CallHierarchyIncomingCallsParams) async -> Response<CallHierarchyIncomingCallsResponse> { .failure(NotImplementedError) }
 	func callHierarchyOutgoingCalls(id: JSONId, params: CallHierarchyOutgoingCallsParams) async -> Response<CallHierarchyOutgoingCallsResponse> { .failure(NotImplementedError) }
+	func typeHierarchySubtypes(id: JSONId, params: TypeHierarchySubtypesParams) async -> Response<TypeHierarchySubtypesResponse> { .failure(NotImplementedError) }
+	func typeHierarchySupertypes(id: JSONId, params: TypeHierarchySupertypesParams) async -> Response<TypeHierarchySupertypesResponse> { .failure(NotImplementedError) }
 	func custom(id: JSONId, method: String, params: LSPAny) async -> Response<LSPAny> { .failure(NotImplementedError) }
 }
